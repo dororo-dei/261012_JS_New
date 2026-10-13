@@ -1,16 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>연산자 2</title>
-</head>
-<body>
+  </head>
+  <body>
     <button id="btn">클릭 +</button>
     <p class="counter">클릭횟수 : 0</p>
     <script>
-        let clickBtn = document.querySelector("#btn")
-        console.log(clickBtn)
+      let clickBtn = document.querySelector("#btn");
+      console.log(clickBtn);
+      // 클릭 횟수 담기
+      let counter = document.querySelector(".counter");
+      console.log(counter);
+      let count = 0; // 클릭 횟수를 저장하는 변수
+      clickBtn.addEventListener("click", function () {
+        //   console.log("클릭완료");
+        console.log(count);
+        count++;
+        // console.log(count); // 클릭하면 이 콘솔이 찍힌다
+        counter.textContent = `클릭횟수 : ${count}`
+      }); // click이 이벤트, funtion이 함수아며 {}안에 기능을 적는다
     </script>
-</body>
+  </body>
 </html>
