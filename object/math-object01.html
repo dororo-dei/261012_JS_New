@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배경색 변경</title>
+    <style>
+      /* body{
+            background-color: rgb(255 255 255);
+        } */
+    </style>
+  </head>
+  <body>
+    <!-- AI 에게 같은 프롬프트로 색변경을 해달라고 할 시 같은 코드를 알려주는 것이 아니다 -->
+    <!-- 다양한 코드를 아는 것이 필요하다 -->
+    <button class="btn">색변경</button>
+    <script>
+      const btn = document.querySelector(".btn");
+      //   console.log(btn);
+      btn.addEventListener("click", () => {
+        // console.log("click");
+        // rgb(255,255,255) <- 최대값 흰색 / rgb(0,0,0) <-최소값 검정색
+
+        // 1. consol에 랜덤으로 숫자가 찍히지만 나는 0~225의 정수가 필요함
+        // 2. Math.random() * 256
+        // 3. 소수점이 필요없으니 Math.floor(Math.random() * 256) 라고함
+        const r = Math.floor(Math.random() * 256);
+        // console.log(r);
+        const g = Math.floor(Math.random() * 256);
+        // console.log(g);
+        const b = Math.floor(Math.random() * 256);
+        // console.log(n);
+        const bgColor = `rgb(${r},${g},${b})`;
+        console.log(bgColor);
+        document.body.style.backgroundColor = bgColor;
+        // document: 현재 웹페이지의 HTML 문서를 Javascript에서 다룰 수 있도록 브라우저가 제공하는 객체(object)
+      });
+    </script>
+  </body>
+</html>

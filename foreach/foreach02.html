@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>foreach() 02</title>
+  </head>
+  <body>
+    <ul id="fruitList">
+      <!-- js 출력 -->
+    </ul>
+    <script>
+      // 더미 데이터
+      const list = document.querySelector("#fruitList");
+      const fruits = [
+        "사과",
+        "바나나",
+        "포도",
+        "망고",
+        "수박",
+        "딸기",
+        "복숭아",
+        "멜론",
+        "체리",
+        "귤",
+      ];
+      console.log(fruits);
+      fruits.forEach((item, index) => {
+        console.log(item, index + 1);
+        list.innerHTML += `<li>${index}. ${item}</li>`; // += : 계속 데이터가 추가되게한다
+      });
+    </script>
+  </body>
+</html>

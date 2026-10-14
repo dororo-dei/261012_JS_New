@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String 객체</title>
+  </head>
+  <body>
+    <script>
+      // 1. length 속성
+      const str = "Hello, JavaScript";
+      console.log(str.length); // : 길이
+      //   2. toUpperCase()toLowerCase() <-메서드
+      console.log(str.toUpperCase()); // : 대문자로 변경
+      console.log(str.toLowerCase()); // : 소문자로 변경
+      // 3. includes() 해당내용이 있는지 확인 <-메서드
+      const email = "user@example.com";
+      console.log(email.includes("@")); // 포함되어있는지에 대하여 참과 거짓 & 유연성 검사에서 사용
+      //   4. trim() 공백 제거 <- 메서드
+      const input = " he llo ";
+      console.log(input.length);
+      console.log(input.trim().length); // input의 공백을 없앤 후 길이 단, 글자 뒤의 공백은 세지 않는다 
+      
+    </script>
+  </body>
+</html>
