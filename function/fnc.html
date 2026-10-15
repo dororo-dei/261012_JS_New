@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수01 - 이론</title>
+  </head>
+  <body>
+    <script>
+      // 함수: 동작해야 할 기능을 묶은 명령
+      //   alert() 자바스크립트에 포함되어 있는 여러 함수 중 하나이다 => 내장함수
+      // 내가 만드는 함수 -> 내가 이름을 지어줘야 한다
+      // 두 수를 더하는 함수
+      //   (a, b, c, d) 매개변수 : 함수가 값을 전달하는 변수
+      function addNum(a, b, c, d) {
+        console.log("함수 호출");
+        console.log(a);
+        
+
+        // 실행 코드
+        let sum = a + b + c + d;
+        // document.write(sum); // 변수만 들어온다
+        document.write(`${sum}<br>`);
+      }
+      //   같은 이름에 데이터가 여러개 있다? 매개변수 (a,b)를 활용하자!
+      addNum(1, 10, 50, 20); // ★ 인수: 함수 호출 할 때 전달하는 실제 값
+      addNum(2, 20, 10, 20); // ★ 이름이 있으면 함수 재사용 가능
+      addNum(3, 30, 30, 20);
+      addNum(); // 값이 없으면 undefined로 뜬다
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수06 - inputNameDisplay</title>
+  </head>
+  <body>
+    <!-- 예시라 폼에 담지 않는다는 것을 참고 -->
+    <input type="text" id="nameInput" placeholder="이름 입력" />
+    <button id="showBtn">확인</button>
+    <!-- 확인 버튼을 누르면 사용자가 입력하는 값을 출력하고  싶음 -->
+    <p id="result">
+      <!-- js 출력 -->
+    </p>
+    <script>
+      const nameInput = document.querySelector("#nameInput");
+      const showBtn = document.querySelector("#showBtn");
+      const reslut = document.querySelector("#result");
+      //   사용자가 입력한 이름을 받아오는 함수
+      function showName(name) {
+        console.log(name);
+
+        reslut.textContent = `안녕하세요~ , ${name}님 반갑습니다.😊`;
+      }
+      showBtn.addEventListener("click", () => {
+        // username 변수에 입력창에 값 (value)
+        let userName = nameInput.value;
+        // console.log(userName);
+        showName(userName);
+        // input 초기화
+        nameInput.value = ""; // nameInput의 값은 빈 문자열로 하겠다
+      });
+    </script>
+  </body>
+</html>

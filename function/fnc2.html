@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수03 - 클릭 이벤트를 활용한 색상 변경</title>
+  </head>
+  <body>
+    <button id="colorBtn">색 바꾸기</button>
+    <script>
+      // 색변경 함수
+      function changeColor() {
+          document.body.style.backgroundColor = "skyblue";
+      }
+      //   ★ 반드시 function입력 후 따로 이름을 불러줘야한다
+      //   changeColor() // 함수가 바로 실행
+
+      // 내가 원하는 것: 버튼 클릭 시 색상 변경
+      // document.querySelector("#colorBtn").addEventListener("")
+      const colorBtn = document.querySelector("#colorBtn");
+      // colorBtn.addEventListener("click", changeColor);
+      colorBtn.addEventListener("click", function(){
+          document.body.style.backgroundColor = "skyblue";
+      });
+    </script>
+  </body>
+</html>
