@@ -1,17 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>foreach() 03</title>
+    <style>
+      ul {
+        display: flex;
+        gap: 30px;
+      }
+      li {
+        width: 200px;
+        background-color: antiquewhite;
+        padding: 20px;
+      }
+      li img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
     <ul id="productList">
-        <!-- js출력 -->
+      <!-- <img src="/images/tshirt.jpg" alt="" /> -->
+      <!-- js출력 -->
     </ul>
     <script>
-    // 변수에 <ul>을 담는다
-        const proList
+      // 변수에 <ul>을 담는다
+      const proList = document.querySelector("#productList");
+      //   console.log(proList);
+      //   더미텍스트
+      // 상품에 대한 데이터를 하나의 배열안에 객체로 묶는 법은 아래와 같다
+      const products = [
+        {
+          name: "티셔츠",
+          price: 15000,
+          desc: "이쁜 티셔츠",
+          Image: "/images/tshirt.jpg",
+        },
+        {
+          name: "청바지",
+          price: 20000,
+          desc: "이쁜 청바지",
+          Image: "/images/jeans.jpg",
+        },
+        {
+          name: "운동화",
+          price: 15000,
+          desc: "이쁜 운동화",
+          Image: "/images/shoes.jpg",
+        },
+      ];
+      //   console.log(products);
+      //   products.forEach(function(){})
+      products.forEach((item, index) => {
+        // console.log(item, index);
+        // console.log(item.name); // 메서드가 아니기 때문에 ()할 필요가 없다
+        // console.log(item.price); //item에 있는 price라는 뜻이다
+        // console.log(item.desc);
+        proList.innerHTML += `
+        <li>
+        <img src="${item.Image}" alt="${item.name}">
+        <h3>상품 이름: ${item.name}</h3>
+        <p>상품 설명: ${item.desc}</p>
+        <p>상품 가격: ${item.price} 원</p>
+      </li>
+        `; // ul안에있는 모든 것을 뜻한다
+      });
     </script>
-</body>
+  </body>
 </html>
