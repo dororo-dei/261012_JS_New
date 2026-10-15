@@ -22,8 +22,13 @@
     <script>
       const menu = document.querySelector(".menu");
       const submenu = document.querySelector(".submenu");
+
       menu.addEventListener("click", () => {
-        submenu.classList.toggle("show");
+        if (submenu.classList.contains("show")) {
+          submenu.classList.remove("show");
+        } else {
+          submenu.classList.add("show");
+        }
       });
     </script>
   </body>
