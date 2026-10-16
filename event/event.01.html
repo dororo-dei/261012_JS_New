@@ -1,0 +1,145 @@
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트01 - 이벤트의 종류</title>
+
+    <style>
+      /* 기본 박스 스타일 */
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+
+      /* active 클래스가 추가되었을 때 */
+      .box.active {
+        width: 500px;
+        height: 500px;
+        background-color: yellow;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 1. 클릭 이벤트 -->
+    <button id="btn">눌러보세요</button>
+
+    <!-- 2. 입력 이벤트 -->
+    <input type="text" id="inputName" placeholder="이름을 입력하세요" />
+
+    <!-- 3. form 제출 이벤트 -->
+    <form id="myForm">
+      <input type="text" id="userEmail" placeholder="이메일을 입력하세요" />
+      <button type="submit">제출</button>
+    </form>
+
+    <!-- 4. 마우스 이벤트 -->
+    <div class="box"></div>
+
+    <!-- 5. 키보드 이벤트 -->
+    <input type="text" id="keyInput" placeholder="아무 키나 눌러보세요" />
+
+    <script>
+      // 1. 클릭 이벤트
+      const btn = document.querySelector("#btn");
+
+      btn.addEventListener("click", () => {
+        console.log("click");
+        btn.style.color = "red";
+      });
+
+      // 2. 입력 이벤트
+      const userName = document.querySelector("#inputName");
+
+      userName.addEventListener("input", () => {
+        // 입력값이 변경될 때마다 현재 입력값 출력
+        console.log(userName.value);
+      });
+
+      // 3. form 제출 이벤트
+      const form = document.querySelector("#myForm");
+
+      // submit은 form이 제출될 때 발생하는 이벤트
+      form.addEventListener("submit", (event) => {
+        console.log(event);
+
+        // form 제출 시 브라우저의 기본 동작을 막는다.
+        event.preventDefault();
+
+        // preventDefault()는 이벤트 객체가 제공하는 메서드이다.
+        // event는 매개변수 이름이므로 e 등 다른 이름도 사용할 수 있다.
+        // 핵심은 이벤트 객체를 매개변수로 전달받는다는 점이다.
+
+        console.log("폼이 제출되었습니다");
+
+        // 이메일 입력 요소를 선택한다.
+        const userEmail = document.querySelector("#userEmail");
+
+        // 선택한 input의 value 속성으로 입력값을 가져온다.
+        document.write(`${userEmail.value}`);
+
+        // [추가 학습 및 실무 참고]
+        // document.write()는 페이지 로딩 완료 후 실행하면
+        // 기존 HTML 문서를 지우고 새 내용으로 대체할 수 있다.
+        // 실무에서는 textContent 등을 사용하는 방법을 권장한다.
+        // 이메일 입력창은 type="email"로 지정할 수도 있다.
+      });
+
+      // 4. 마우스 이벤트
+      const box = document.querySelector(".box");
+
+      // 마우스가 박스 위에 올라왔을 때
+      box.addEventListener("mouseover", () => {
+        box.style.backgroundColor = "orange";
+      });
+
+      // 마우스가 박스 밖으로 벗어났을 때
+      box.addEventListener("mouseout", () => {
+        box.style.backgroundColor = "aquamarine";
+      });
+
+      // 5. 키보드 이벤트
+      const keyInput = document.querySelector("#keyInput");
+
+      keyInput.addEventListener("keydown", (event) => {
+        console.log(event.key);
+        console.log(event.keyCode);
+
+        // [실무 참고]
+        // event.key : 눌린 키의 값
+        // event.keyCode : 키에 대응하는 숫자 코드 (deprecated)
+        // 현재는 event.key 또는 event.code 사용을 권장한다.
+      });
+
+      // 6. 페이지 로드 이벤트
+      window.addEventListener("load", () => {
+        console.log("페이지 로딩 완료");
+      });
+
+      // 7. 화면 크기 변경 이벤트
+      window.addEventListener("resize", () => {
+        // 브라우저 뷰포트 너비가 600px 미만이면 active 클래스 추가
+        if (window.innerWidth < 600) {
+          box.classList.add("active");
+        } else {
+          // 600px 이상이면 active 클래스 제거
+          box.classList.remove("active");
+        }
+      });
+
+      // [추가 학습]
+      // window.innerWidth : 브라우저 뷰포트의 너비
+      // window.innerHeight : 브라우저 뷰포트의 높이
+      // console.log(window.innerWidth);
+      // console.log(window.innerHeight);
+
+      // resize 이벤트는 창 크기가 변경될 때 실행된다.
+      // 페이지 최초 로드 시에는 resize 이벤트가 자동 실행되지 않으므로
+      // 처음부터 600px 미만인 화면에서는 active가 적용되지 않을 수 있다.
+    </script>
+  </body>
+</html>
